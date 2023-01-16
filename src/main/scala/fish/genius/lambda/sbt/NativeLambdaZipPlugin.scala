@@ -20,6 +20,7 @@ object NativeLambdaZipPlugin extends AutoPlugin {
       GraalVMLambdaCodeAssetBuilder
         .lambdaZip(
           (GraalVMNativeImage / packageBin).value,
+          List((Compile / resourceDirectory).value),
           (Compile / target).value
         )
         .getOrElse((GraalVMNativeImage / packageBin).value)

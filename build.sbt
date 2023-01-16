@@ -30,6 +30,8 @@ lazy val root = project
   .in(file("."))
   .settings(
     name := "sbt-native-lambda-packager",
-    libraryDependencies += "com.github.sbt" % "sbt-native-packager_2.12_1.0" % "1.9.11"
+    libraryDependencies += "com.github.sbt" % "sbt-native-packager_2.12_1.0" % "1.9.11",
+    libraryDependencies += "org.scalactic" %% "scalactic" % "3.2.14",
+    libraryDependencies += "org.scalatest" %% "scalatest" % "3.2.14" % Test
   )
   .enablePlugins(SbtPlugin)

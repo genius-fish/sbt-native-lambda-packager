@@ -1,0 +1,1 @@
+# SBT Native Lambda Package Sample

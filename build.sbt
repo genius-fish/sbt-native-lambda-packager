@@ -2,7 +2,6 @@ ThisBuild / organization := "fish.genius"
 ThisBuild / organizationName := "Genius Fish"
 ThisBuild / organizationHomepage := Some(url("https://genius.fish"))
 ThisBuild / scalaVersion := "2.12.17"
-ThisBuild / version := "2.1.1"
 ThisBuild / resolvers += Resolver.mavenLocal
 ThisBuild / versionScheme := Some("early-semver")
 ThisBuild / developers := List(

@@ -1,7 +1,7 @@
 ThisBuild / organization := "fish.genius"
 ThisBuild / organizationName := "Genius Fish"
 ThisBuild / organizationHomepage := Some(url("https://genius.fish"))
-ThisBuild / scalaVersion := "2.12.17"
+ThisBuild / scalaVersion := "2.12.12"
 ThisBuild / resolvers += Resolver.mavenLocal
 ThisBuild / versionScheme := Some("early-semver")
 ThisBuild / developers := List(
@@ -29,8 +29,7 @@ lazy val root = project
   .in(file("."))
   .settings(
     name := "sbt-native-lambda-packager",
-    libraryDependencies += "com.github.sbt" % "sbt-native-packager_2.12_1.0" % "1.9.11",
-    libraryDependencies += "org.scalactic" %% "scalactic" % "3.2.14",
-    libraryDependencies += "org.scalatest" %% "scalatest" % "3.2.14" % Test
+    libraryDependencies += "org.scalactic" %% "scalactic" % "3.2.16",
+    libraryDependencies += "org.scalatest" %% "scalatest" % "3.2.16" % Test
   )
   .enablePlugins(SbtPlugin)

@@ -1,15 +1,13 @@
 package fish.genius.lambda.sbt
 
-import com.typesafe.sbt.packager.graalvmnativeimage.GraalVMNativeImagePlugin
-import com.typesafe.sbt.packager.graalvmnativeimage.GraalVMNativeImagePlugin.autoImport.GraalVMNativeImage
 import sbt.Keys.*
 import sbt.{AutoPlugin, Compile, File, settingKey, taskKey}
 
 object NativeLambdaZipPlugin extends AutoPlugin {
-  override def requires = GraalVMNativeImagePlugin
   override def trigger = allRequirements
 
   object autoImport {
+    val binaryFile = settingKey[File]("the binary file that contains the logic of the lambda")
     val includeDirectories =
       settingKey[Seq[File]]("directories to include in the lambda zip file")
     val lambdaZip =
@@ -21,11 +19,11 @@ object NativeLambdaZipPlugin extends AutoPlugin {
     lambdaZip := {
       GraalVMLambdaCodeAssetBuilder
         .lambdaZip(
-          (GraalVMNativeImage / packageBin).value,
+          (lambdaZip / binaryFile).value,
           (lambdaZip / includeDirectories).value.toList,
           (Compile / target).value
         )
-        .getOrElse((GraalVMNativeImage / packageBin).value)
+        .getOrElse((lambdaZip / binaryFile).value)
     },
     lambdaZip / includeDirectories := Nil
   )

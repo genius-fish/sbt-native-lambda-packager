@@ -1,6 +1,6 @@
 package fish.genius.lambda.sbt
 
-import sbt.Keys.*
+import sbt.Keys._
 import sbt.{AutoPlugin, Compile, File, settingKey, taskKey}
 
 object NativeLambdaZipPlugin extends AutoPlugin {

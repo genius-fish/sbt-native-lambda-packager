@@ -1,10 +1,12 @@
 package fish.genius.lambda.sbt
 
 import sbt.Keys._
+import sbt.plugins.JvmPlugin
 import sbt.{AutoPlugin, Compile, File, settingKey, taskKey}
 
 object NativeLambdaZipPlugin extends AutoPlugin {
-  override def trigger = allRequirements
+  override def requires = JvmPlugin
+  override def trigger = noTrigger
 
   object autoImport {
     val binaryFile = settingKey[File]("the binary file that contains the logic of the lambda")
